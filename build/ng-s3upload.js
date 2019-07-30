@@ -47,7 +47,7 @@
         var deferred = $q.defer();
         $http.get(uri).then(
           function successCallback(response) {
-            deferred.resolve(response);
+            deferred.resolve(response.data);
           },
           function errorCallback(response) {
             deferred.reject(error);

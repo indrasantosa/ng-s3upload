@@ -45,14 +45,14 @@
 
       this.getUploadOptions = function(uri) {
         var deferred = $q.defer();
-        $http
-          .get(uri)
-          .success(function(response, status) {
+        $http.get(uri).then(
+          function successCallback(response) {
             deferred.resolve(response);
-          })
-          .error(function(error, status) {
+          },
+          function errorCallback(response) {
             deferred.reject(error);
-          });
+          }
+        );
 
         return deferred.promise;
       };
